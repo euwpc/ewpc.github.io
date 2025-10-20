@@ -49,13 +49,29 @@
       color: #82c9ff;
     }
 
+    .search-container {
+      margin: 30px 0 10px;
+      text-align: center;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background-color: #1a1a1a;
+      color: white;
+      outline: none;
+      font-size: 1em;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 15px;
       width: 90%;
       max-width: 1200px;
-      margin: 30px auto 60px;
+      margin: 20px auto 60px;
     }
 
     .gallery img {
@@ -68,6 +84,13 @@
     .gallery img:hover {
       transform: scale(1.03);
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    #noResults {
+      display: none;
+      color: #aaa;
+      font-size: 1.1em;
+      margin-top: 20px;
     }
 
     footer {
@@ -87,51 +110,78 @@
     </a>
   </header>
 
-  <div class="gallery">
-    <!-- Replace these with your own images -->
-    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="Outlook 1"></a>
-    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="Outlook 2"></a>
-    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="Outlook 3"></a>
-    <a href="20_08_2025_2.png"><img src="20_08_2025_2.png" alt="Outlook 3"></a>
-    <a href="21_08_2025.png"><img src="21_08_2025.png" alt="Outlook 3"></a>
-    <a href="22_08_2025.png"><img src="22_08_2025.png" alt="Outlook 3"></a>
-    <a href="22_08_2025_2.png"><img src="22_08_2025_2.png" alt="Outlook 3"></a>
-    <a href="23_08_2025.png"><img src="23_08_2025.png" alt="Outlook 3"></a>
-    <a href="24_08_2025.png"><img src="24_08_2025.png" alt="Outlook 3"></a>
-    <a href="01_09_2025.png"><img src="01_09_2025.png" alt="Outlook 3"></a>
-    <a href="01_09_2025_2.png"><img src="01_09_2025_2.png" alt="Outlook 3"></a>
-    <a href="02_09_2025.png"><img src="02_09_2025.png" alt="Outlook 3"></a>
-    <a href="03_09_2025.png"><img src="03_09_2025.png" alt="Outlook 3"></a>
-    <a href="04_09_2025.png"><img src="04_09_2025.png" alt="Outlook 3"></a>
-    <a href="05_09_2025.png"><img src="05_09_2025.png" alt="Outlook 3"></a>
-    <a href="08_09_2025.png"><img src="08_09_2025.png" alt="Outlook 3"></a>
-    <a href="09_09_2025.png"><img src="09_09_2025.png" alt="Outlook 3"></a>
-    <a href="11_09_2025.png"><img src="11_09_2025.png" alt="Outlook 3"></a>
-    <a href="13_09_2025.png"><img src="13_09_2025.png" alt="Outlook 3"></a>
-    <a href="24_09_2025.png"><img src="24_09_2025.png" alt="Outlook 3"></a>
-    <a href="25_09_2025.png"><img src="25_09_2025.png" alt="Outlook 3"></a>
-    <a href="27_09_2025.png"><img src="27_09_2025.png" alt="Outlook 3"></a>
-    <a href="28_09_2025.png"><img src="28_09_2025.png" alt="Outlook 3"></a>
-    <a href="28_09_2025_close.png"><img src="28_09_2025_close.png" alt="Outlook 3"></a>
-    <a href="29_09_2025.png"><img src="29_09_2025.png" alt="Outlook 3"></a>
-    <a href="29_09_2025_close.png"><img src="29_09_2025_close.png" alt="Outlook 3"></a>
-    <a href="30_09_2025.png"><img src="30_09_2025.png" alt="Outlook 3"></a>
-    <a href="30_09_2025_close.png"><img src="30_09_2025_close.png" alt="Outlook 3"></a>
-    <a href="01_10_2025.png"><img src="01_10_2025.png" alt="Outlook 3"></a>
-    <a href="01_10_2025_close.png"><img src="01_10_2025_close.png" alt="Outlook 3"></a>
-    <a href="02_10_2025.png"><img src="02_10_2025.png" alt="Outlook 3"></a>
-    <a href="02_10_2025_close.png"><img src="02_10_2025_close.png" alt="Outlook 3"></a>
-    <a href="03_10_2025_Amy.png"><img src="03_10_2025_Amy.png" alt="Outlook 3"></a>
-    <a href="14_10_2025.png"><img src="14_10_2025.png" alt="Outlook 3"></a>
-    <a href="14_10_2025_close.png"><img src="14_10_2025_close.png" alt="Outlook 3"></a>
-    <a href="16_10_2025.png"><img src="16_10_2025.png" alt="Outlook 3"></a>
-    <a href="16_10_2025_poland.png"><img src="16_10_2025_poland.png" alt="Outlook 3"></a>
-    <a href="16_10_2025_med.png"><img src="16_10_2025_med.png" alt="Outlook 3"></a>
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Search by date (e.g. 14_10_2025)">
+  </div>
+
+  <div id="noResults">No outlook found.</div>
+
+  <div class="gallery" id="gallery">
+    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="19_08_2025"></a>
+    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="19_08_2025_14_45"></a>
+    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="20_08_2025"></a>
+    <a href="20_08_2025_2.png"><img src="20_08_2025_2.png" alt="20_08_2025_2"></a>
+    <a href="21_08_2025.png"><img src="21_08_2025.png" alt="21_08_2025"></a>
+    <a href="22_08_2025.png"><img src="22_08_2025.png" alt="22_08_2025"></a>
+    <a href="22_08_2025_2.png"><img src="22_08_2025_2.png" alt="22_08_2025_2"></a>
+    <a href="23_08_2025.png"><img src="23_08_2025.png" alt="23_08_2025"></a>
+    <a href="24_08_2025.png"><img src="24_08_2025.png" alt="24_08_2025"></a>
+    <a href="01_09_2025.png"><img src="01_09_2025.png" alt="01_09_2025"></a>
+    <a href="01_09_2025_2.png"><img src="01_09_2025_2.png" alt="01_09_2025_2"></a>
+    <a href="02_09_2025.png"><img src="02_09_2025.png" alt="02_09_2025"></a>
+    <a href="03_09_2025.png"><img src="03_09_2025.png" alt="03_09_2025"></a>
+    <a href="04_09_2025.png"><img src="04_09_2025.png" alt="04_09_2025"></a>
+    <a href="05_09_2025.png"><img src="05_09_2025.png" alt="05_09_2025"></a>
+    <a href="08_09_2025.png"><img src="08_09_2025.png" alt="08_09_2025"></a>
+    <a href="09_09_2025.png"><img src="09_09_2025.png" alt="09_09_2025"></a>
+    <a href="11_09_2025.png"><img src="11_09_2025.png" alt="11_09_2025"></a>
+    <a href="13_09_2025.png"><img src="13_09_2025.png" alt="13_09_2025"></a>
+    <a href="24_09_2025.png"><img src="24_09_2025.png" alt="24_09_2025"></a>
+    <a href="25_09_2025.png"><img src="25_09_2025.png" alt="25_09_2025"></a>
+    <a href="27_09_2025.png"><img src="27_09_2025.png" alt="27_09_2025"></a>
+    <a href="28_09_2025.png"><img src="28_09_2025.png" alt="28_09_2025"></a>
+    <a href="28_09_2025_close.png"><img src="28_09_2025_close.png" alt="28_09_2025_close"></a>
+    <a href="29_09_2025.png"><img src="29_09_2025.png" alt="29_09_2025"></a>
+    <a href="29_09_2025_close.png"><img src="29_09_2025_close.png" alt="29_09_2025_close"></a>
+    <a href="30_09_2025.png"><img src="30_09_2025.png" alt="30_09_2025"></a>
+    <a href="30_09_2025_close.png"><img src="30_09_2025_close.png" alt="30_09_2025_close"></a>
+    <a href="01_10_2025.png"><img src="01_10_2025.png" alt="01_10_2025"></a>
+    <a href="01_10_2025_close.png"><img src="01_10_2025_close.png" alt="01_10_2025_close"></a>
+    <a href="02_10_2025.png"><img src="02_10_2025.png" alt="02_10_2025"></a>
+    <a href="02_10_2025_close.png"><img src="02_10_2025_close.png" alt="02_10_2025_close"></a>
+    <a href="03_10_2025_Amy.png"><img src="03_10_2025_Amy.png" alt="03_10_2025_Amy"></a>
+    <a href="14_10_2025.png"><img src="14_10_2025.png" alt="14_10_2025"></a>
+    <a href="14_10_2025_close.png"><img src="14_10_2025_close.png" alt="14_10_2025_close"></a>
+    <a href="16_10_2025.png"><img src="16_10_2025.png" alt="16_10_2025"></a>
+    <a href="16_10_2025_poland.png"><img src="16_10_2025_poland.png" alt="16_10_2025_poland"></a>
+    <a href="16_10_2025_med.png"><img src="16_10_2025_med.png" alt="16_10_2025_med"></a>
   </div>
 
   <footer>
     &copy; 2025 European Windstorm Prediction Center
   </footer>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const galleryItems = document.querySelectorAll('.gallery a');
+    const noResults = document.getElementById('noResults');
+
+    searchBar.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      galleryItems.forEach(item => {
+        const altText = item.querySelector('img').alt.toLowerCase();
+        if (altText.includes(query)) {
+          item.style.display = '';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
-
