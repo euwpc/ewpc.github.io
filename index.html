@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windstorm Outlook Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f7;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <h1>Windstorm Outlook Gallery</h1>
+  <p>Click images to view in full size</p>
+  <div class="gallery">
+    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="Windstorm outlook"></a>
+    <a href="myimage2.jpg"><img src="myimage2.jpg" alt="Storm 2"></a>
+    <a href="myimage3.jpg"><img src="myimage3.jpg" alt="Storm 3"></a>
+  </div>
+</body>
+</html>
