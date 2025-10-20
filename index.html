@@ -3,42 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windstorm Outlook Gallery</title>
+  <title>Windstorm Outlook Archives</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f4f7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #0e0e0e;
+      color: #f1f1f1;
       margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background: #1a1a1a;
       padding: 20px;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     }
-    h1 {
-      color: #333;
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #ffffff;
     }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 1em;
+      color: #cccccc;
+    }
+
+    a.main-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #4aa8ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    a.main-link:hover {
+      color: #82c9ff;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto 60px;
     }
+
     .gallery img {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .gallery img:hover {
       transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      color: #777;
+      font-size: 0.9em;
+      padding: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Windstorm Outlook Gallery</h1>
-  <p>Click images to view in full size</p>
+  <header>
+    <h1>Windstorm Outlook Archives</h1>
+    <p>Archives will be updated every Sunday</p>
+    <a class="main-link" href="https://european-windstorm-prediction-center.webflow.io/" target="_blank">
+      ⮕ Visit the Main Website
+    </a>
+  </header>
+
   <div class="gallery">
-    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="Windstorm outlook"></a>
-    <a href="myimage2.jpg"><img src="myimage2.jpg" alt="Storm 2"></a>
-    <a href="myimage3.jpg"><img src="myimage3.jpg" alt="Storm 3"></a>
+    <!-- Replace these with your own images -->
+    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="Outlook 1"></a>
+    <a href="myimage2.jpg"><img src="myimage2.jpg" alt="Outlook 2"></a>
+    <a href="myimage3.jpg"><img src="myimage3.jpg" alt="Outlook 3"></a>
   </div>
+
+  <footer>
+    &copy; 2025 European Windstorm Prediction Center
+  </footer>
 </body>
 </html>
+
