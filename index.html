@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Windstorm Outlook Archives</title>
-  <link rel="preload" as="image" href="19_08_2025.png">
-  <link rel="preload" as="image" href="20_08_2025.png">
-  <link rel="preload" as="image" href="21_08_2025.png">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -49,6 +46,25 @@
       color: #4aa8ff;
     }
 
+    header p {
+      margin: 8px 0 0;
+      font-size: 1em;
+      color: #cccccc;
+    }
+
+    a.main-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #4aa8ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    a.main-link:hover {
+      color: #82c9ff;
+    }
+
     .search-container {
       margin: 30px 0 10px;
       text-align: center;
@@ -76,15 +92,11 @@
 
     .gallery img {
       width: 100%;
-      height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.4s ease-in-out;
-      opacity: 0;
-    }
-
-    .gallery img.loaded {
-      opacity: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+      object-fit: cover;
+      background-color: #111;
     }
 
     .gallery img:hover {
@@ -104,6 +116,16 @@
       font-size: 0.9em;
       padding: 20px;
       text-align: center;
+    }
+
+    /* Smooth loading animation */
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .fade-in.loaded {
+      opacity: 1;
     }
   </style>
 </head>
@@ -129,10 +151,11 @@
   <div id="noResults">No outlook found.</div>
 
   <div class="gallery" id="gallery">
-    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="19_08_2025" loading="lazy" width="300" height="200"></a>
-    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="19_08_2025_14_45" loading="lazy" width="300" height="200"></a>
-    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="20_08_2025" loading="lazy" width="300" height="200"></a>
-    <!-- keep the rest as is -->
+    <!-- All your images remain exactly the same -->
+    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="19_08_2025" loading="lazy" decoding="async" class="fade-in"></a>
+    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="19_08_2025_14_45" loading="lazy" decoding="async" class="fade-in"></a>
+    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="20_08_2025" loading="lazy" decoding="async" class="fade-in"></a>
+    <!-- continue with all your images exactly like before -->
   </div>
 
   <footer>
@@ -140,13 +163,14 @@
   </footer>
 
   <script>
-    // Smooth image fade-in after loading
-    document.querySelectorAll('.gallery img').forEach(img => {
-      if (img.complete) img.classList.add('loaded');
-      else img.addEventListener('load', () => img.classList.add('loaded'));
+    // Lazy load animation
+    document.querySelectorAll('img.fade-in').forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+      });
     });
 
-    // Search bar filter
+    // Search logic
     const searchBar = document.getElementById('searchBar');
     const galleryItems = document.querySelectorAll('.gallery a');
     const noResults = document.getElementById('noResults');
@@ -170,4 +194,3 @@
   </script>
 </body>
 </html>
-
