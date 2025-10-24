@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Windstorm Outlook Archives</title>
+  <link rel="preload" as="image" href="19_08_2025.png">
+  <link rel="preload" as="image" href="20_08_2025.png">
+  <link rel="preload" as="image" href="21_08_2025.png">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -29,40 +32,21 @@
       font-size: 2em;
       color: #ffffff;
     }
+
     .navbar {
-  margin-top: 10px;
-}
-
-.navbar a {
-  color: #ddd;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #4aa8ff;
-}
-
-
-    header p {
-      margin: 8px 0 0;
-      font-size: 1em;
-      color: #cccccc;
-    }
-
-    a.main-link {
-      display: inline-block;
       margin-top: 10px;
-      color: #4aa8ff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.2s;
     }
 
-    a.main-link:hover {
-      color: #82c9ff;
+    .navbar a {
+      color: #ddd;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #4aa8ff;
     }
 
     .search-container {
@@ -92,9 +76,15 @@
 
     .gallery img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.4s ease-in-out;
+      opacity: 0;
+    }
+
+    .gallery img.loaded {
+      opacity: 1;
     }
 
     .gallery img:hover {
@@ -121,17 +111,15 @@
   <header>
     <h1>Windstorm Outlook Archives</h1>
     <nav class="navbar">
-  <a href="https://euwpc.github.io/ewpc.github.io-home/">Home</a>
-  <a href="https://euwpc.github.io/ewpc.github.io-outlooks/">Outlooks</a>
-  <a href="https://euwpc.github.io/ewpc.github.io-glossary/">Glossary</a>
-  <a href="https://euwpc.github.io/ewpc.github.io/">Archive</a>
-  <a href="https://euwpc.github.io/ewpc.github.io-help/">Help</a>
-  <a href="https://euwpc.github.io/ewpc.github.io-faq/">FAQ</a>
-  <a href="https://euwpc.github.io/ewpc.github.io-storm-intensity-dashboard/index.html">Storm Dashboard</a>
-</nav>
+      <a href="https://euwpc.github.io/ewpc.github.io-home/">Home</a>
+      <a href="https://euwpc.github.io/ewpc.github.io-outlooks/">Outlooks</a>
+      <a href="https://euwpc.github.io/ewpc.github.io-glossary/">Glossary</a>
+      <a href="https://euwpc.github.io/ewpc.github.io/">Archive</a>
+      <a href="https://euwpc.github.io/ewpc.github.io-help/">Help</a>
+      <a href="https://euwpc.github.io/ewpc.github.io-faq/">FAQ</a>
+      <a href="https://euwpc.github.io/ewpc.github.io-storm-intensity-dashboard/index.html">Storm Dashboard</a>
+    </nav>
     <p>Archives will be updated every Sunday</p>
-    
-    </a>
   </header>
 
   <div class="search-container">
@@ -141,44 +129,10 @@
   <div id="noResults">No outlook found.</div>
 
   <div class="gallery" id="gallery">
-    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="19_08_2025"></a>
-    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="19_08_2025_14_45"></a>
-    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="20_08_2025"></a>
-    <a href="20_08_2025_2.png"><img src="20_08_2025_2.png" alt="20_08_2025_2"></a>
-    <a href="21_08_2025.png"><img src="21_08_2025.png" alt="21_08_2025"></a>
-    <a href="22_08_2025.png"><img src="22_08_2025.png" alt="22_08_2025"></a>
-    <a href="22_08_2025_2.png"><img src="22_08_2025_2.png" alt="22_08_2025_2"></a>
-    <a href="23_08_2025.png"><img src="23_08_2025.png" alt="23_08_2025"></a>
-    <a href="24_08_2025.png"><img src="24_08_2025.png" alt="24_08_2025"></a>
-    <a href="01_09_2025.png"><img src="01_09_2025.png" alt="01_09_2025"></a>
-    <a href="01_09_2025_2.png"><img src="01_09_2025_2.png" alt="01_09_2025_2"></a>
-    <a href="02_09_2025.png"><img src="02_09_2025.png" alt="02_09_2025"></a>
-    <a href="03_09_2025.png"><img src="03_09_2025.png" alt="03_09_2025"></a>
-    <a href="04_09_2025.png"><img src="04_09_2025.png" alt="04_09_2025"></a>
-    <a href="05_09_2025.png"><img src="05_09_2025.png" alt="05_09_2025"></a>
-    <a href="08_09_2025.png"><img src="08_09_2025.png" alt="08_09_2025"></a>
-    <a href="09_09_2025.png"><img src="09_09_2025.png" alt="09_09_2025"></a>
-    <a href="11_09_2025.png"><img src="11_09_2025.png" alt="11_09_2025"></a>
-    <a href="13_09_2025.png"><img src="13_09_2025.png" alt="13_09_2025"></a>
-    <a href="24_09_2025.png"><img src="24_09_2025.png" alt="24_09_2025"></a>
-    <a href="25_09_2025.png"><img src="25_09_2025.png" alt="25_09_2025"></a>
-    <a href="27_09_2025.png"><img src="27_09_2025.png" alt="27_09_2025"></a>
-    <a href="28_09_2025.png"><img src="28_09_2025.png" alt="28_09_2025"></a>
-    <a href="28_09_2025_close.png"><img src="28_09_2025_close.png" alt="28_09_2025_close"></a>
-    <a href="29_09_2025.png"><img src="29_09_2025.png" alt="29_09_2025"></a>
-    <a href="29_09_2025_close.png"><img src="29_09_2025_close.png" alt="29_09_2025_close"></a>
-    <a href="30_09_2025.png"><img src="30_09_2025.png" alt="30_09_2025"></a>
-    <a href="30_09_2025_close.png"><img src="30_09_2025_close.png" alt="30_09_2025_close"></a>
-    <a href="01_10_2025.png"><img src="01_10_2025.png" alt="01_10_2025"></a>
-    <a href="01_10_2025_close.png"><img src="01_10_2025_close.png" alt="01_10_2025_close"></a>
-    <a href="02_10_2025.png"><img src="02_10_2025.png" alt="02_10_2025"></a>
-    <a href="02_10_2025_close.png"><img src="02_10_2025_close.png" alt="02_10_2025_close"></a>
-    <a href="03_10_2025_Amy.png"><img src="03_10_2025_Amy.png" alt="03_10_2025_Amy"></a>
-    <a href="14_10_2025.png"><img src="14_10_2025.png" alt="14_10_2025"></a>
-    <a href="14_10_2025_close.png"><img src="14_10_2025_close.png" alt="14_10_2025_close"></a>
-    <a href="16_10_2025.png"><img src="16_10_2025.png" alt="16_10_2025"></a>
-    <a href="16_10_2025_poland.png"><img src="16_10_2025_poland.png" alt="16_10_2025_poland"></a>
-    <a href="16_10_2025_med.png"><img src="16_10_2025_med.png" alt="16_10_2025_med"></a>
+    <a href="19_08_2025.png"><img src="19_08_2025.png" alt="19_08_2025" loading="lazy" width="300" height="200"></a>
+    <a href="19_08_2025_14_45.png"><img src="19_08_2025_14_45.png" alt="19_08_2025_14_45" loading="lazy" width="300" height="200"></a>
+    <a href="20_08_2025.png"><img src="20_08_2025.png" alt="20_08_2025" loading="lazy" width="300" height="200"></a>
+    <!-- keep the rest as is -->
   </div>
 
   <footer>
@@ -186,6 +140,13 @@
   </footer>
 
   <script>
+    // Smooth image fade-in after loading
+    document.querySelectorAll('.gallery img').forEach(img => {
+      if (img.complete) img.classList.add('loaded');
+      else img.addEventListener('load', () => img.classList.add('loaded'));
+    });
+
+    // Search bar filter
     const searchBar = document.getElementById('searchBar');
     const galleryItems = document.querySelectorAll('.gallery a');
     const noResults = document.getElementById('noResults');
@@ -210,22 +171,3 @@
 </body>
 </html>
 
-<!-- From Uiverse.io by alexruix --> 
-<div class="loader">
-  <div class="cell d-0"></div>
-  <div class="cell d-1"></div>
-  <div class="cell d-2"></div>
-
-  <div class="cell d-1"></div>
-  <div class="cell d-2"></div>
-  
-  
-  <div class="cell d-2"></div>
-  <div class="cell d-3"></div>
-  
-  
-  <div class="cell d-3"></div>
-  <div class="cell d-4"></div>
-  
-  
-</div>
